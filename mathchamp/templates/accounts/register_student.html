@@ -1,0 +1,35 @@
+{% extends 'base_unauth.html' %}
+{% block page_content %}
+    <div style="text-align: center;"><h1> Register as student </h1></div>
+    <form method="post" action="{% url 'register student' %}">
+        <div class="container">
+            {#                        {{ form.as_ul }}#}
+            {% csrf_token %}
+            <label>Email: </label>
+            {% if form.email.errors %}
+                {{ form.email.errors }}
+            {% endif %}
+            {{ form.email }}<br>
+
+            <label>Password : </label>
+            {% if form.password1.errors %}
+                {{ form.password1.errors }}
+            {% endif %}
+            {{ form.password1 }}
+
+            <label>Password again: </label>
+            {% if form.password2.errors %}
+                {{ form.password2.errors }}
+            {% endif %}
+            {{ form.password2 }}
+
+            <label>Grade : </label>
+            {% if form.grade.errors %}
+                {{ form.grade.errors }}
+            {% endif %}
+            {{ form.grade }}
+
+            <button type="submit">Sign up</button>
+        </div>
+    </form>
+{% endblock %}

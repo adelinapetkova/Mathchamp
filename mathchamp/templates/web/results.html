@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <h2 style="text-align: center">Results</h2>
+    <table style="width:80%">
+        <tr>
+            <th>Place</th>
+            <th>Email</th>
+            <th>Grade</th>
+            <th>Count of solved problems</th>
+            <th>Points</th>
+        </tr>
+        {% for result in results %}
+            {% if user.id == result.user_id %}
+                <tr style="background-color: #CDE3BB">
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ result.user.email }}</td>
+                    <td>{{ result.grade }}</td>
+                    <td>{{ result.count_of_solved_problems }}</td>
+                    <td>{{ result.points }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ result.user.email }}</td>
+                    <td>{{ result.grade }}</td>
+                    <td>{{ result.count_of_solved_problems }}</td>
+                    <td>{{ result.points }}</td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </table>
+{% endblock %}

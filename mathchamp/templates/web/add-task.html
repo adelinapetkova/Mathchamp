@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div style="text-align: center;"><h1> Add task </h1></div>
+    <form method="post" action="{% url 'add task' %}">
+        <div class="container">
+            {#            {{ form }}#}
+            {% csrf_token %}
+            <label>Name: </label>
+            {% if form.name.errors %}
+                {{ form.name.errors }}
+            {% endif %}
+            {{ form.name }}<br>
+
+            <label>Description : </label><br>
+            {% if form.description.errors %}
+                {{ form.description.errors }}
+            {% endif %}
+            {{ form.description }}<br>
+
+            <label>Grade : </label>
+            {% if form.grade.errors %}
+                {{ form.grade.errors }}
+            {% endif %}
+            {{ form.grade }}<br>
+
+            <label>Points : </label>
+            {% if form.points.errors %}
+                {{ form.points.errors }}
+            {% endif %}
+            {{ form.points }}<br>
+
+            <label>Right answer : </label>
+            {% if form.right_answer.errors %}
+                {{ form.right_answer.errors }}
+            {% endif %}
+            {{ form.right_answer }}
+            <button type="submit">Add</button>
+        </div>
+    </form>
+{% endblock %}

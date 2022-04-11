@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+    <title>Mathchamp</title>
+</head>
+<body>
+<div class="page-container">
+    <div class="content-wrap">
+        <header>
+            <nav>
+                <a href="{% url 'unauthenticated home' %}" class="nav-link">Home</a>
+                <div class="topnav-right">
+                    <a href="{% url 'register teacher' %}" class="nav-link">Sign up as teacher</a>
+                    <a href="{% url 'register student' %}" class="nav-link">Sign up as student</a>
+                    <a href="{% url 'login' %}" class="nav-link">Log in</a>
+                </div>
+            </nav>
+        </header>
+
+        {% block page_content %}
+        {% endblock %}
+        <div class="push"></div>
+    </div>
+    <footer class="footer-distributed">
+
+        <div class="footer-left">
+
+            <h3>Mathchamp</h3>
+
+            <p class="footer-links">
+                <a href="{% url 'unauthenticated home' %}" class="link-1">Home</a>
+
+                <a href="{% url 'register teacher' %}">Sign up as teacher</a>
+
+                <a href="{% url 'register student' %}">Sign up as student</a>
+
+                <a href="{% url 'login' %}">Log in</a>
+            </p>
+
+            <p class="footer-company-name">Mathchamp © 2022</p>
+        </div>
+
+        <div class="footer-center">
+
+            <div>
+                <i class="fa fa-phone"></i>
+                <p>Phone number: 088 777 7777</p>
+            </div>
+
+            <div>
+                <i class="fa fa-envelope"></i>
+                <p>Email: mathchamp@support.com</p>
+            </div>
+
+
+        </div>
+
+        <div class="footer-right">
+
+            <p class="footer-company-about">
+                <span><a href="{% url 'unauthenticated home' %}" class="footer-links">About us</a></span>
+                Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+                vehicula sit amet.
+            </p>
+
+        </div>
+
+    </footer>
+
+</div>
+</body>
+</html>

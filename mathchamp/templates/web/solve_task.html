@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div style="text-align: center;"><h1> Solve task </h1></div>
+    <div class="container">
+        {{ task.description }}
+    </div>
+    <form method="post" action="{% url 'solve task' task.id %}">
+        <div class="container">
+            {{ submit_form }}
+            {% csrf_token %}
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+{% endblock %}

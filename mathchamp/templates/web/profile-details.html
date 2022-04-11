@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <h2 style="text-align:center; font-size: 30px">Profile details</h2>
+
+    <div class="card">
+        {#  Add .url to image when we have an image  #}
+        {% if profile.image %}
+            <img src="{{ profile.image.url }}"
+                 alt="Profile picture" style="width:100%">
+        {% else %}
+            <img src="{{ profile.image }}"
+                 alt="Profile picture" style="width:100%">
+        {% endif %}
+        {% if profile.first_name and profile.last_name %}
+            <h1>{{ profile.first_name }} {{ profile.last_name }}</h1>
+        {% endif %}
+        <p class="title">{{ profile.email }}</p>
+        {% if user.is_student %}
+            <p>Grade: {{ profile.grade }}</p>
+            <p>Points: {{ result.points }}</p>
+            <p>Solved tasks count: {{ result.count_of_solved_problems }}</p>
+        {% endif %}
+        <a href="{% url 'edit profile' %}" class="nav-link" style="color: #222222">Edit</a><br>
+        <a href="{% url 'delete profile' user.pk %}" class="nav-link" style="color: #222222">Delete profile</a><br>
+        <a href="{% url 'password_change_done' %}" class="nav-link" style="color: #222222; padding: 10px">Change password</a>
+    </div>
+{% endblock %}

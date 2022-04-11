@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div style="text-align: center;"><h1> Edit profile </h1></div>
+    <form method="post" action="{% url 'edit profile' %}" enctype="multipart/form-data">
+        <div class="container">
+            {#            {{ form }}#}
+            {% csrf_token %}
+            <label>First name: </label>
+            {% if form.first_name.errors %}
+                {{ form.first_name.errors }}
+            {% endif %}
+            {{ form.first_name }}<br>
+
+            <label>Last name: </label>
+            {% if form.last_name.errors %}
+                {{ form.last_name.errors }}
+            {% endif %}
+            {{ form.last_name }}
+
+            <label>Image: </label>
+            {#            {% if form.image.errors %}#}
+            {#                {{ form.image.errors }}#}
+            {#            {% endif %}#}
+            {#            {{ form.image }}#}
+            <input type="file" name="image" accept="image/*" id="id_image">
+            <br>
+
+            {% if user.is_student %}
+                <label>Grade : </label>
+                {% if form.grade.errors %}
+                    {{ form.grade.errors }}
+                {% endif %}
+                {{ form.grade }}
+            {% endif %}
+            <button type="submit">Edit</button>
+        </div>
+    </form>
+{% endblock %}

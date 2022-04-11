@@ -1,0 +1,19 @@
+{% extends 'base_unauth.html' %}
+{% block page_content %}
+
+    <div style="text-align: center;"><h1> Login Form </h1></div>
+    <form method="post" action="{% url 'login' %}">
+        <div class="container">
+            {{ form }}
+            {% csrf_token %}
+            {#        <label>Username : </label>#}
+            {#        <input type="text" placeholder="Enter Username" name="username" required>#}
+            {#        <label>Password : </label>#}
+            {#        <input type="password" placeholder="Enter Password" name="password" required>#}
+            <!--            <label>Grade : </label>-->
+            <!--            <input type="number" placeholder="Enter Your Grade" name="grade" required>-->
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+{% endblock %}

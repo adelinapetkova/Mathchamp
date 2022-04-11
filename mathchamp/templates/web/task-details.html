@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div class="site-description">
+        <h2 style="text-align: center;color: #33383b;font-size: 25px">{{ task.name }}</h2>
+        <p style="text-align: center; padding: 5px;font-size: 20px">{{ task.description }}</p>
+        <p style="text-align: center; padding: 5px;font-size: 20px">Points: {{ task.points }}</p>
+        {% if success_rate %}
+            <p style="text-align: center; padding: 5px;font-size: 20px">Success rate: {{ success_rate }}%</p>
+        {% endif %}
+
+
+        <div style="text-align: center">
+            {% if user.is_student %}
+                {% if task not in solved_tasks_by_student %}
+                    <a href="{% url 'solve task' task.id %}"
+                       style="color: #222222; font-size: 18px; padding: 5px; margin: auto; background-color: #CDE3BB; border: 1px solid #222222">Solve</a>
+                {% endif %}
+            {% else %}
+                <a href="{% url 'edit task' task.id %}"
+                   style="color: #222222; font-size: 18px; padding: 5px; margin: auto; background-color: #CDE3BB; border: 1px solid #222222">Edit</a>
+            {% endif %}
+        </div>
+    </div>
+
+{% endblock %}

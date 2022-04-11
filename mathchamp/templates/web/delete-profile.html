@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block page_content %}
+    <div style="text-align: center;"><h1> Delete profile </h1></div>
+    <form method="post" action="{% url 'delete profile' user.pk %}" enctype="multipart/form-data">
+        <div class="container">
+            <p style="text-align: center">Are you sure you want to delete your profile?</p>
+            {{ form }}
+            {% csrf_token %}
+            <button type="submit">Delete</button>
+        </div>
+    </form>
+{% endblock %}
