@@ -5,14 +5,6 @@ from mathchamp.web.models import MathProblem, ProblemStatistics, Results
 
 @admin.register(MathProblem)
 class MathProblemAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('name', 'grade', 'points',)
+    ordering = ['grade', 'points',]
 
-
-@admin.register(ProblemStatistics)
-class ProblemStatisticsAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(Results)
-class ResultsAdmin(admin.ModelAdmin):
-    pass

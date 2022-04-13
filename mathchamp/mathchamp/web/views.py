@@ -47,7 +47,7 @@ class EditMathProblemView(LoginRequiredMixin, UpdateView):
         return super().dispatch(*args, **kwargs)
 
 
-@login_required
+@login_required(login_url=reverse_lazy('login'))
 def show_profile_details(request):
     student_ids = Student.objects.all().values_list('pk', flat=True)
     user = UserModel.objects.get(pk=request.user.id)
@@ -184,4 +184,4 @@ def task_details(request, pk):
 
 
 def page_not_found_view(request, exception):
-    return render(request, '404.html', status=404)
+    return render(request, '404.html')
