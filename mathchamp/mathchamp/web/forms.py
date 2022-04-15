@@ -20,6 +20,16 @@ class EditStudentProfileForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.fields['image'].help_text = None
 
+    def save(self, commit=True):
+        user = super().save(commit=False)
+        user.save()
+        custom_user=UserModel.objects.get(pk=self.instance.user_id)
+        result=Results.objects.get(user_id=self.instance.user_id)
+        result.grade=self.instance.grade
+        custom_user.grade=self.instance.grade
+        result.save()
+        custom_user.save()
+
 
 class EditTeacherProfileForm(forms.ModelForm):
     class Meta:

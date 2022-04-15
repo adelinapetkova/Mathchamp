@@ -5,7 +5,7 @@
             <div id="task_box">
                 <h3 style="text-align: center; font-size: 20px">{{ task.name }}</h3>
                 <p style="text-align: center">{{ task.description }}</p>
-                <p style="padding: 10px; font-size: 18px">Difficulty: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
+                <p style="padding: 10px; font-size: 18px">Grade: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
                     {{ task.points }}</p>
                 <div class="task-buttons">
                     <a href="{% url 'edit task' task.id %}"
@@ -20,7 +20,7 @@
                 <div id="task_box">
                     <h3 style="text-align: center; font-size: 20px">{{ task.name }}</h3>
                     <p style="text-align: center">{{ task.description }}</p>
-                    <p style="padding: 10px; font-size: 18px">Difficulty: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
+                    <p style="padding: 10px; font-size: 18px">Grade: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
                         {{ task.points }}</p>
                     <div class="task-buttons">
                         <a href="{% url 'solve task' task.id %}" style="color: #222222; font-size: 18px; padding: 5px">Solve</a>
@@ -38,7 +38,7 @@
                 <div id="task_box">
                     <h3 style="text-align: center; font-size: 20px">{{ task.name }}</h3>
                     <p style="text-align: center">{{ task.description }}</p>
-                    <p style="padding: 10px; font-size: 18px">Difficulty: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
+                    <p style="padding: 10px; font-size: 18px">Grade: {{ task.grade }}&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Points:
                         {{ task.points }}</p>
                     <div class="task-buttons">
                         <a href="{% url 'task details' task.id %}" style="color: #222222; font-size: 18px; padding: 5px">Details</a>

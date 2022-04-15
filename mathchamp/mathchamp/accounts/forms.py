@@ -21,6 +21,8 @@ class StudentRegistrationForm(UserCreationForm):
             profile.save()
         else:
             profile = Student.objects.create(email=self.instance.email, user=self.instance, grade=1)
+            user.grade=1
+            user.save()
             profile.save()
         result = Results.objects.create(user=profile, grade=profile.grade)
         result.save()
